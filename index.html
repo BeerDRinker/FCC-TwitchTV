@@ -14,8 +14,6 @@
     <meta name="description" content="Twitchtv" />
     <!--Normalize CSS-->
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
-    <!--Fonts Avesome-->
-    <link rel="stylesheet" href="libs/fonts-awesome/css/font-awesome.min.css">
     <!--Fonts: Lato and Roboto-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto:400,700">
     <!--Custom CSS-->
@@ -39,18 +37,26 @@
         <h1>TWITCH STREAMERS</h1>
 
         <form action="">
-            <input type="button" id="all" value="All">
-            <input type="button" id="online" value="Online">
-            <input type="button" id="offline" value="Offline">
+            <input type="button" id="allButton" value="All">
+            <input type="button" id="onlineButton" value="Online">
+            <input type="button" id="offlineButton" value="Offline">
         </form>
 
     </header>
-    
-    <section class="main">
 
-        <ul class="streamers">
-            <li>ololo</li>
-        </ul>
+    <section id="main">
+        <a href="https://www.twitch.tv/esl_sc2" target="_blank">
+            <div class="offline"><img src="https://static-cdn.jtvnw.net/jtv_user_pictures/esl_sc2-profile_image-d6db9488cec97125-300x300.jpeg">
+                <h3>ESL_SC2</h3>
+                <p>StarCraft II</p>
+            </div>
+        </a>
+        <a href="https://www.twitch.tv/cretetion" target="_blank">
+            <div class="offline"><img src="https://static-cdn.jtvnw.net/jtv_user_pictures/cretetion-profile_image-12bae34d9765f222-300x300.jpeg">
+                <h3>cretetion</h3>
+                <p>Tom Clancy's The Division</p>
+            </div>
+        </a>
 
     </section>
 
@@ -58,7 +64,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!--Custom script-->
     <script src="js/myscript.js"></script>
-    
+
 
 
 </body>

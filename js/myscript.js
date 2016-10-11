@@ -3,41 +3,134 @@
 
 window.onload = function () {
 
-    getData();
+    getInfo(streamers, infoToArray);
+
+    showOnline();
+
+    showOffline();
+
+    showAll();
 
 }
 
-
+/*This is an array of streamers. You can add or remove streamers to manage the request to twitch.*/
 var streamers = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "streamerhouse"];
 
+/*This is an arrays of objects recived form query to twitch.*/
+var infoArray = [];
 
-function getData() {
 
-    for (i = 0; i < streamers.length; i++) {
+/*This function makes query to twitch, and return CHANNELS INFO*/
+function getInfo(arr, callback) {
+
+    for (i = 0; i < arr.length; i++) {
 
         $.ajax({
             type: 'GET',
-            url: "https://api.twitch.tv/kraken/streams/" + streamers[i],
+            url: "https://api.twitch.tv/kraken/channels/" + arr[i],
             headers: {
                 'Client-ID': "oix1w0jfdbsvzmjjugqyw46n2iz26v1"
             },
 
-            success: takeData
+            success: callback
 
         });
     }
 }
 
-var streamersArray = [];
 
-console.log(streamersArray);
-console.log(streamersArray.length);
+/*Show all channels */
+function showAll() {
 
-function takeData(data) {
+    $('#allButton').click(function () {
 
-    streamersArray.push(data);
+        $('.online').show();
+
+        $('.offline').show();
+
+    });
+}
+
+
+/*Show online channels */
+function showOnline() {
+
+    $('#onlineButton').click(function () {
+
+        $('.online').show();
+
+        $('.offline').hide();
+
+    });
+}
+
+
+/*Show offline channels */
+function showOffline() {
+
+    $('#offlineButton').click(function () {
+
+        $('.offline').show();
+
+        $('.online').hide();
+
+    });
+}
+
+
+/*This is callback function that pushing objects from getInfo to infoArray*/
+function infoToArray(data) {
+
+    infoArray.push(data);
+
+    if (streamers.length == infoArray.length) {
+
+        console.log(infoArray);
+
+        displayCannels();
+
+    }
+}
+
+
+/*This is callback function that pushing objects from getInfo to infoArray*/
+function displayCannels() {
+
+    for (i = 0; i < infoArray.length; i++) {
+
+        var main = document.getElementById('main');
+
+        /*Creating 'a' element end setting attrebuts*/
+        var link = document.createElement('a');
+        link.setAttribute('href', infoArray[i].url);
+        link.setAttribute('target', '_blank');
+        main.appendChild(link);
+
+        /*Creating 'div' element end setting attrebuts*/
+        var div = document.createElement('div');
+        link.appendChild(div);
+        div.setAttribute('class', 'online');
+
+        /*Creating 'img' element end setting attrebuts*/
+        var img = document.createElement('img');
+        img.setAttribute('src', infoArray[i].logo);
+        div.appendChild(img);
+
+        /*Creating 'h3' element end setting attrebuts*/
+        var h3 = document.createElement('h3');
+        h3.innerHTML = infoArray[i].display_name;
+        div.appendChild(h3);
+
+        /*Creating 'p' element end setting attrebuts*/
+        var text = document.createElement('p');
+        text.innerHTML = infoArray[i].game;
+        div.appendChild(text);
+
+    }
 
 }
+
+
 
 
 

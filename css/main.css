@@ -190,32 +190,32 @@ header input {
     color: rgba(255, 255, 255, 0.75);
 }
 
-header #all {
+header #allButton {
     background: #2581d0;
     transition: background 0.3s;
 }
 
-header #all:hover {
+header #allButton:hover {
     background-color: #56b1ff;
     transition: background 0.3s;
 }
 
-header #online {
+header #onlineButton {
     background-color: #2be62b;
     transition: background 0.3s;
 }
 
-header #online:hover {
+header #onlineButton:hover {
     background-color: #74ff74;
     transition: background 0.3s;
 }
 
-header #offline {
+header #offlineButton {
     background-color: #e86060;
     transition: background 0.3s;
 }
 
-header #offline:hover {
+header #offlineButton:hover {
     background-color: #ff9b9b;
     transition: background 0.3s;
 }
@@ -223,19 +223,57 @@ header #offline:hover {
 
 /****************** Main section ******************/
 
-.main {
-    width: 50%;
+#main {
+    width: 40%;
     margin: 0 auto;
 }
 
-.main ul {
-    text-align: center;
+#main a {
+    text-decoration: none;
+    color: #000;
 }
 
-.main ul li {
+.offline {
+    text-align: center;
     background: rgba(255, 0, 0, 0.44);
-    margin: 5px 0;
     height: 80px;
+    margin: 5px 0;
+}
+
+.offline p {
+    padding-top: 0px;
+}
+
+.offline h3 {
+    padding-top: 20px;
+    padding-bottom: 5px;
+    font-size: 26px;
+}
+
+.online {
+    text-align: center;
+    background: rgba(0, 255, 0, 0.44);
+    height: 80px;
+    margin: 5px 0;
+}
+
+.online p {
+    padding-top: 0px;
+}
+
+.online h3 {
+    padding-top: 20px;
+    padding-bottom: 5px;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+img {
+    float: left;
+    width: 70px;
+    border-radius: 50%;
+    margin-top: 5px;
+    margin-left: 50px;
 }
 
 
@@ -252,8 +290,11 @@ header #offline:hover {
     header input {
         font-size: 24px;
     }
-    .main {
-        width: 80%;
+    #main {
+        width: 60%;
+    }
+    img {
+        margin-left: 50px;
     }
 }
 
@@ -268,8 +309,14 @@ header #offline:hover {
     header input {
         font-size: 18px;
     }
-    .main {
-        width: 90%;
+    #main {
+        width: 80%;
+    }
+    .online h3 {
+        font-size: 18px;
+    }
+    .offline h3 {
+        font-size: 18px;
     }
 }
 
